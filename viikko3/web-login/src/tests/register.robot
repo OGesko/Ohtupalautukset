@@ -13,6 +13,22 @@ Register With Valid Username And Password
     Submit Registration
     Register Should Be Successful
 
+Login After Successful Registration
+    Create User  testuser  testpsw123
+    Go To Login Page
+    Set Username  testuser
+    Set Password  testpsw123
+    Submit Credentials
+    Main Page Should Be Open
+
+Login After Failed Registration
+    Create User  faileduser  invalidpsw
+    Go To Login Page
+    Set Username  faileduser
+    Set Password  invalidpsw
+    Submit Credentials
+    Page Should contain  Invalid username or password
+
 Register With Too Short Username And Valid Password
     Input Username  ab
     Input Password  validpsw123
@@ -75,3 +91,14 @@ Register Should Be Successful
 Reset Application And Go To Register Page
     Reset Application
     Go To Register Page
+
+Submit Credentials
+    Click Button  Login
+
+Set Username
+    [Arguments]  ${username}
+    Input Text  username  ${username}
+
+Set Password
+    [Arguments]  ${password}
+    Input Text  password  ${password}
