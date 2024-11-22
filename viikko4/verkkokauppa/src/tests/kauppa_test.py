@@ -132,3 +132,5 @@ class TestKauppa(unittest.TestCase):
 
         # Varmistetaan, että tuote palautettiin varastoon
         self.varasto_mock.palauta_varastoon.assert_called_with(tuote)
+
+#test1
